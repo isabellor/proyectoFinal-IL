@@ -1,24 +1,38 @@
-import Button from 'react-bootstrap/Button';
-import BootstrapCard from 'react-bootstrap/Card';
-import './Card.css';
+import Card from "./Card";
+import { Link } from "react-router-dom";
 
+function Products({ products, addToCart, loading }) {
+  if (loading) return <p>Cargando productos...</p>;
 
-function Card({ title, image, price,onAddToCart }) {
   return (
-    <BootstrapCard className="border-0 rounded-4 h-100 shadow hover-shadow" >
-      <BootstrapCard.Img 
-      variant="top" 
-      src={image}
-      className="object-fit-cover"
-      style={{ height: '200px' }}
-       />
-      <BootstrapCard.Body className="d-flex flex-column justify-content-between">
-        <BootstrapCard.Title className="fw-semibold fs-5">{title}</BootstrapCard.Title>
-        <BootstrapCard.Text className="text-muted">Precio: ${price}</BootstrapCard.Text>
-        <Button variant="success" size="lg" className="mt-3 w-100" onClick={onAddToCart}>Añadir al carrito</Button>
-      </BootstrapCard.Body>
-    </BootstrapCard>
+    <div className="container py-5">
+      <div className="row g-4">
+        {products.map((product) => (
+          <div className="col-sm-6 col-md-4 col-lg-3" key={product.id}>
+            <div className="h-100">
+              <Link to={`/productos/${product.id}`} className="text-decoration-none text-dark">
+                <img
+                  src={product.image}
+                  alt={product.title}
+                  className="img-fluid mb-2"
+                  style={{ height: "200px", objectFit: "cover", width: "100%" }}
+                />
+                <h5>{product.title}</h5>
+              </Link>
+
+              <p className="text-muted">Precio: ${product.price}</p>
+              <Button
+                variant="primary"
+                size="lg"
+                className="mt-2 w-100"
+                onClick={() => addToCart(product)}
+              >
+                Añadir al carrito
+              </Button>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }
-
-export default Card;

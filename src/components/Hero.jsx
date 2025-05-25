@@ -13,7 +13,7 @@ function Hero() {
         }}
       >
         <div className=" hero-text p-4 ">
-          <h2 className="display-1">Bienvenidos a su tienda favorita</h2>
+          <h2 className="display-1">Bienvenidos a Tienda React</h2>
           <p className="display-4 m-0">Disfruten la experiencia</p>
         </div>
       </section>
