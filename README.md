@@ -1,12 +1,56 @@
-# React + Vite
+# Proyecto Final - Tienda React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este proyecto es una tienda en línea desarrollada con React y Vite. Permite visualizar productos, acceder al detalle de cada uno y agregarlos a un carrito de compras.
 
-Currently, two official plugins are available:
+## Enlace al sitio en producción
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Puedes ver la versión desplegada del proyecto aquí:  
+https://proyectofinalpreentregail.netlify.app/productos
 
-## Expanding the ESLint configuration
+## Tecnologías utilizadas
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- React
+- Vite
+- React Router DOM
+- Bootstrap 5
+- SweetAlert2
+- Netlify (para el despliegue)
+
+## Funcionalidades principales
+
+- Visualización de productos obtenidos desde una API externa (https://fakestoreapi.com)
+- Vista detallada de cada producto
+- Agregado de productos al carrito desde la vista de productos y desde la vista individual
+- Diseño adaptable (responsive) con Bootstrap
+- Alertas visuales con SweetAlert
+
+## Instalación y ejecución local
+
+1. Clonar el repositorio:
+   ```bash
+   git clone https://github.com/isabellor/proyectoFinal-IL.git
+   ```
+2. Ingresar al directorio del proyecto:
+   ```bash
+   cd proyectoFinal-IL
+   ```
+3. Instalar las dependencias:
+   ```bash
+   npm install
+   ```
+4. Ejecutar el proyecto en entorno de desarrollo:
+   ```bash
+   npm run dev
+   ```
+
+## Generar versión para producción
+
+```bash
+npm run build
+```
+
+El directorio que se debe publicar en Netlify es `/dist`.
+
+---
+
+Gracias por visitar este proyecto.
