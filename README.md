@@ -5,7 +5,7 @@ Este proyecto es una tienda en línea desarrollada con React y Vite. Permite vis
 ## Enlace al sitio en producción
 
 Puedes ver la versión desplegada del proyecto aquí:  
-https://proyectofinalpreentregail.netlify.app/productos
+https://proyectofinalpreentregail.netlify.app
 
 ## Tecnologías utilizadas
 
