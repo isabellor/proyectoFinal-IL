@@ -4,6 +4,10 @@ import Product from "./components/Product";
 import Hero from "./components/Hero";
 import Footer from "./components/Footer";
 import Products from "./components/Products";
+import Dashboard from "./components/Dashboard";
+import LoginForm from "./components/LoginForm";
+import ProtectedRoute from "./components/ProtectedRoute";
+import { AuthProvider } from "./context/AuthContext";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
@@ -12,7 +16,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 const MySwal = withReactContent(Swal);
 
 function App() {
-  const navItems = ["Home", "Productos", "Contacto"];
+  
   const [cartItems, setCartItems] = useState([]);
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -49,14 +53,31 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      <Router>
-        <Header titulo="Proyecto Tienda React" cartItemCount={cartItems.length} />
+      <div className="App">
+      
+       <AuthProvider> 
+        <Router>
+         <Header titulo="Proyecto Tienda React" cartItemCount={cartItems.length} />
 
       
 
         <Routes>
           <Route path="/" element={<Hero />} />
+          <Route path="/login" element={<LoginForm />} />
+          <Route
+            path="/dashboard"
+            element={
+
+
+
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+
+
+
+            }
+          />
           <Route
             path="/productos"
             element={
@@ -68,15 +89,16 @@ function App() {
             }
           />
           <Route
-  path="/productos/:id"
-  element={<Product addToCart={addToCart} />}
+              path="/productos/:id"
+              element={<Product addToCart={addToCart} />}
 />
 
           <Route path="/contacto" element={<Footer />} />
         </Routes>
 
-      
-      </Router>
+         
+     </Router>
+     </AuthProvider> 
     </div>
   );
 }
