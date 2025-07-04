@@ -1,9 +1,12 @@
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import { useCartContext } from "../context/CartContext";
 
-function Products({ products, addToCart, loading }) {
+
+function Products({ products, loading }) {
   if (loading) return <p>Cargando productos...</p>;
+  const addToCart = useCartContext();
 
   return (
     <div className="container py-5">

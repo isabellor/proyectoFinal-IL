@@ -6,30 +6,23 @@ import Footer from "./components/Footer";
 import Products from "./components/Products";
 import Dashboard from "./components/Dashboard";
 import LoginForm from "./components/LoginForm";
+import Cart from "./components/Cart";
 import ProtectedRoute from "./components/ProtectedRoute";
-import { AuthProvider } from "./context/AuthContext";
+import { AuthProvider } from "./context/AuthContext"; 
 import "bootstrap/dist/css/bootstrap.min.css";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { CartProvider } from "./context/CartContext"; 
+import "./App.css";
 
 const MySwal = withReactContent(Swal);
 
 function App() {
-  
-  const [cartItems, setCartItems] = useState([]);
+    
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const addToCart = (item) => {
-    setCartItems([...cartItems, item]);
-    MySwal.fire({
-      icon: "success",
-      title: "Producto agregado",
-      text: `${item.title} ha sido agregado al carrito.`,
-      confirmButtonText: "Aceptar",
-    });
-  };
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
@@ -57,7 +50,8 @@ function App() {
       
        <AuthProvider> 
         <Router>
-         <Header titulo="Proyecto Tienda React" cartItemCount={cartItems.length} />
+         <CartProvider>
+         <Header titulo="Proyecto Tienda React"/>
 
       
 
@@ -67,15 +61,9 @@ function App() {
           <Route
             path="/dashboard"
             element={
-
-
-
               <ProtectedRoute>
                 <Dashboard />
               </ProtectedRoute>
-
-
-
             }
           />
           <Route
@@ -84,20 +72,20 @@ function App() {
               <Products
                 products={items}
                 loading={loading}
-                addToCart={addToCart}
               />
             }
           />
           <Route
               path="/productos/:id"
-              element={<Product addToCart={addToCart} />}
+              element={<Product/>}
 />
+            <Route path="/carrito" element={<Cart />} />
 
           <Route path="/contacto" element={<Footer />} />
         </Routes>
 
-         
-     </Router>
+       </CartProvider>    
+      </Router>
      </AuthProvider> 
     </div>
   );
