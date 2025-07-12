@@ -132,26 +132,38 @@ export default function ShoppingCart() {
               ) : (
                 cartProducts.map((product) => (
                   <Card key={product.id} className="mb-3 border-0 border-bottom pb-3">
-                    <Row className="align-items-center">
-                      <Col xs={2}>
-                        <Image src={product.image} fluid rounded />
+                    <Row className="align-items-center gy-3 flex-column flex-md-row">
+                      {/* Imagen */}
+                      <Col xs={12} md="auto" className="text-center mb-2 mb-md-0">
+                        <Image
+                          src={product.image}
+                          fluid
+                          rounded
+                          style={{ maxWidth: "80px", height: "auto" }}
+                        />
                       </Col>
-                      <Col xs={4}>
+
+                      {/* Nombre */}
+                      <Col xs={12} md className="text-break text-center text-md-start mb-2 mb-md-0">
                         <h6 className="mb-1">{product.name}</h6>
                       </Col>
-                      <Col xs={4} className="d-flex align-items-center justify-content-center">
+
+                      {/* Controles */}
+                      <Col xs={12} md className="d-flex flex-wrap align-items-center justify-content-center gap-2 mb-2 mb-md-0">
                         <Button variant="outline-secondary" size="sm" onClick={() => decrementQuantity(product.id)}>
                           -
                         </Button>
-                        <div className="px-3 fw-bold">{product.quantity}</div>
+                        <div className="px-2 fw-bold">{product.quantity}</div>
                         <Button variant="outline-secondary" size="sm" onClick={() => addToCart(product)}>
                           +
                         </Button>
-                        <Button variant="outline-danger" size="sm" className="ms-3" onClick={() => removeFromCart(product.id)}>
+                        <Button variant="outline-danger" size="sm" onClick={() => removeFromCart(product.id)}>
                           Eliminar
                         </Button>
                       </Col>
-                      <Col xs={2} className="text-end">
+
+                      {/* Precio */}
+                      <Col xs={12} md="auto" className="text-center text-md-end">
                         <h6 className="mb-0">${(product.price * product.quantity).toFixed(2)}</h6>
                       </Col>
                     </Row>

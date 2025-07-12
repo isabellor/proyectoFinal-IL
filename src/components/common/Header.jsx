@@ -21,7 +21,8 @@ export default function Header({ titulo }) {
 
   return (
     <Navbar expand="md" bg="light" className="shadow-sm sticky-top py-3">
-      <Container className="d-flex align-items-center justify-content-between">
+      <Container>
+        {/* Logo + Título */}
         <div className="d-flex align-items-center">
           <FaReact size={32} color="#61dafb" className="me-2" aria-hidden="true" />
           <Navbar.Brand as="span" className="fs-3 text-dark m-0">
@@ -29,7 +30,10 @@ export default function Header({ titulo }) {
           </Navbar.Brand>
         </div>
 
-        <Navbar.Toggle aria-controls="main-navbar" aria-label="Toggle navigation" />
+        {/* Botón hamburguesa a la derecha */}
+        <Navbar.Toggle aria-controls="main-navbar" aria-label="Toggle navigation" className="ms-auto" />
+
+        {/* Nav Links */}
         <Navbar.Collapse id="main-navbar" className="justify-content-center">
           <Nav className="gap-3 text-center" role="menubar" aria-label="Main navigation">
             <Nav.Link
@@ -56,7 +60,8 @@ export default function Header({ titulo }) {
           </Nav>
         </Navbar.Collapse>
 
-        <div className="d-flex align-items-center gap-3 ms-auto">
+        {/* Usuario + Carrito siempre a la derecha */}
+        <div className="d-flex align-items-center gap-3 ms-3">
           {user ? (
             <Dropdown align="end">
               <Dropdown.Toggle
