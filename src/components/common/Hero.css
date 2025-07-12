@@ -1,0 +1,20 @@
+.hero-text h2,
+.hero-text p {
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+}
+.react-logo {
+  margin-top: 2rem;
+  font-size: 6rem; /* tamaño grande */
+  color: #a87ee9; /* tono morado claro que combine */
+  animation: spin 10s linear infinite;
+  filter: drop-shadow(0 0 8px #7b59c2);
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

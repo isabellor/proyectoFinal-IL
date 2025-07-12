@@ -3,15 +3,7 @@ import { Container, Row, Col, Button } from "react-bootstrap";
 import Swal from "sweetalert2";
 
 export default function Footer() {
-  const handleChatClick = () => {
-    Swal.fire({
-      icon: "info",
-      title: "Chat en desarrollo",
-      text: "En futuras versiones habrá un chatbot para ayudarte.",
-      confirmButtonText: "¡Genial!",
-    });
-  };
-
+                
   return (
     <>
       <footer className="bg-dark text-light py-5 mt-5">
@@ -45,28 +37,6 @@ export default function Footer() {
           </Col>
         </Row>
         </Container>
-      </footer>
-
-      <Button
-        variant="success"
-        style={{
-          position: "fixed",
-          bottom: "20px",
-          right: "20px",
-          borderRadius: "50%",
-          width: "60px",
-          height: "60px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          boxShadow: "0 4px 8px rgba(0,0,0,0.3)",
-          zIndex: 1000,
-        }}
-        onClick={handleChatClick}
-        aria-label="Chat"
-      >
-        <FaComments size={30} />
-      </Button>
-    </>
+      </footer>                                                                                                                         </>
   );
 }
