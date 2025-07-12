@@ -1,12 +1,12 @@
-# 🛍️ Proyecto Final React - Tienda React
+# Proyecto Final React - Tienda React
 
 Este es mi proyecto final para el curso de React: una tienda online desarrollada con **React**, **React Bootstrap** y **React Router**. La aplicación incluye funcionalidades de carrito de compras, autenticación básica de usuario/admin, perfil de usuario editable, historial de compras y generación de factura en PDF.
 
 ---
 
-## 🚀 Despliegue en Producción
+##  Despliegue en Producción
 
-👉 [Ver Tienda React desplegada](https://proyectofinalpreentregail.netlify.app)
+ https://proyectofinail.netlify.app
 
 ---
 
@@ -22,7 +22,7 @@ Este es mi proyecto final para el curso de React: una tienda online desarrollada
 
 ---
 
-## ✅ Funcionalidades Principales
+## Funcionalidades Principales
 
 - Navegación SPA con React Router.
 - Listado de productos con paginación y buscador.
@@ -32,22 +32,9 @@ Este es mi proyecto final para el curso de React: una tienda online desarrollada
 - Perfil de usuario editable (nombre, email, dirección).
 - Generación de factura en PDF.
 - Diseño **responsive mobile-first** con Bootstrap.
-- Credenciales de prueba
-| Rol     | Usuario | Contraseña |
-| ------- | ------- | ---------- |
-| Admin   | admin   | 1234       |
-| Usuario | user    | 1234       |
-
-
+- Credenciales de prueba Administrador admin 1234 Usuario user 1234
+ 
 ---
-
-## ⚙️ Instalación Local
-
-1. **Clonar este repositorio**
-
-   ```bash
-   git clone https://github.com/isabellor/proyectoFinal-IL.git
-
 
 
 ## Instalación y ejecución local
