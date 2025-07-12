@@ -11,12 +11,23 @@ export default function LoginForm() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Ref para evitar toasts duplicados
+  
   const toastShown = useRef(false);
 
   useEffect(() => {
     if (!user && location.pathname === "/login" && !toastShown.current) {
-      toast.info("Credenciales de prueba:\nAdmin: admin/1234\nUser: user/1234");
+      toast.info(
+  "Credenciales de prueba:\nAdmin: admin/1234\nUser: user/1234",
+  {
+    position: "top-center",   // 
+    autoClose: 8000,          
+    style: {
+      fontSize: "1.2rem",    
+      whiteSpace: "pre-line", 
+    },
+  }
+);
+
       toastShown.current = true;
 
       setUserName("");
@@ -32,11 +43,11 @@ export default function LoginForm() {
     e.preventDefault();
 
     if (userName === "admin" && password === "1234") {
-      // Login admin con nombre completo
+      
       login({ nombre: "Administrador", role: "admin", email: "admin@example.com" });
       navigate("/dashboard");
     } else if (userName === "user" && password === "1234") {
-      // Login usuario con nombre real
+      
       login({ nombre: "Isabel Gómez", role: "user", email: "isa@example.com", direccion: "Av. Corrientes 1234, CABA" });
       navigate("/user-panel");
     } else {
